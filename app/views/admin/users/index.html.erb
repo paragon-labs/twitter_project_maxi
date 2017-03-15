@@ -1,0 +1,23 @@
+<h1>Users</h1>
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Admin?</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %> </td>
+      <td><%= user.admin %> </td>
+    </tr>
+  <% end %>
+</table>
+<br>
+
+<li>
+  <%= link_to('Create New User', new_admin_user_path) %>
+</li>
+
+<li>
+  <%= link_to('Home', home_index_path) %>
+</li>
