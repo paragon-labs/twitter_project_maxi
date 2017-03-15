@@ -1,0 +1,31 @@
+<h1>Users</h1>
+<table>
+  <tr>
+    <th align='left'>Email</th>
+    <th align='left'>Admin?</th>
+      <% if admin_role? %>
+        <th align='left'>Edit</th>
+      <% end %>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %> </td>
+      <td><%= user.admin %> </td>
+      <% if admin_role? %>
+        <td><%= link_to 'Edit User', edit_admin_user_path(user) %> </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<br>
+
+<% if admin_role? %>
+  <li>
+    <%= link_to('Create New User', new_admin_user_path) %>
+  </li>
+<% end %>
+
+<li>
+  <%= link_to('Home', home_index_path) %>
+</li>
