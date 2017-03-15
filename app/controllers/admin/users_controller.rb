@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-  before_action :authorize, except: :index
+  before_action :authorize
 
   def index
     @users = User.all
@@ -34,14 +34,14 @@ class Admin::UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :admin)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :admin)
+  end
 
-    def authorize
-      unless current_user.admin?
-        redirect_to admin_users_path
-      end
+  def authorize
+    unless current_user.admin?
+      redirect_to home_index_path
     end
+  end
 
 end

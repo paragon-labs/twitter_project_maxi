@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   before_action :admin?
 
   def index

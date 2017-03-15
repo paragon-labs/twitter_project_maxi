@@ -2,27 +2,29 @@
 
   <%= render partial: 'errors', locals: { user: user } %>
 
-  <div class='field'>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <form role='form'>
+    <div class='form-group'>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true , class: 'form-group'%>
+    </div>
+    <div class='form-group'>
+      <%= f.label :password %> <br />
+      <%= f.password_field :password, autocomplete: 'off', class: 'form-group'%>
+    </div>
+    <div class='form-group'>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-group' %>
+    </div>
 
-  <div class='field'>
-    <%= f.label :password %> <br />
-    <%= f.password_field :password, autocomplete: 'off' %>
-  </div>
+    <div>
+      <%= f.label 'User Type' %><br />
+      <%= f.select :admin, {Admin: true, User: false}, class: 'dropdown-menu' %>
+    </div>
+    <br />
+    <div class='actions'>
+      <%= f.submit 'Done', class: 'btn btn-success' %>
+    </div>
 
-  <div class='field'>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: 'off' %>
-  </div>
+  </form>
 
-  <div>
-    <%= f.label 'Admin User?' %><br />
-    <%= f.select :admin, [true, false] %>
-  </div>
-
-  <div class='actions'>
-    <%= f.submit 'Update User' %>
-  </div>
 <% end %>
