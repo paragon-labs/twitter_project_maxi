@@ -4,7 +4,8 @@
     <th align='left'>Email</th>
     <th align='left'>Admin?</th>
       <% if admin_role? %>
-        <th align='left'>Edit</th>
+        <th align='left'>Edit User</th>
+        <th align='left'>Reset User Password</th>
       <% end %>
   </tr>
 
@@ -13,7 +14,8 @@
       <td><%= user.email %> </td>
       <td><%= user.admin ? 'Yes' : 'No' %> </td>
       <% if admin_role? %>
-        <td><%= link_to 'Edit User', edit_admin_user_path(user), class: 'btn btn-link btn-xs' %> </td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-link btn-xs' %> </td>
+        <td><%= link_to 'Reset Password', admin_reset_password_path(user), class: 'btn btn-link btn-xs' %> </td>
       <% end %>
     </tr>
   <% end %>
