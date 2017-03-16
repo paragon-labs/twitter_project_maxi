@@ -1,0 +1,29 @@
+<%= form_for [:admin, user] do |f| %>
+
+  <%= render partial: 'errors', locals: { user: user } %>
+
+  <form role='form'>
+    <div class='form-group'>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true , class: 'form-group'%>
+    </div>
+
+    <% if user.new_record? %>
+      <%= render partial: 'password_fields', locals: { f: f } %>
+    <% end %>
+
+    <div class='row'>
+      <div class='col-xs-2'>
+        <%= f.label 'User Type' %>
+        <%= f.select :admin, {Admin: true, User: false}, {}, class: 'form-control' %>
+      </div>
+    </div>
+
+    <br />
+    <div class='actions'>
+      <%= f.submit 'Done', class: 'btn btn-success' %>
+      <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link'%>
+    </div>
+  </form>
+
+<% end %>

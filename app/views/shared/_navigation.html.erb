@@ -1,0 +1,18 @@
+<nav class='navbar navbar-default' role='navigation'>
+  <div class='container'>
+
+    <% if user_signed_in? %>
+      <div class='navbar-header'>
+        <a class='navbar-brand' href='/'>Home</a>
+      </div>
+      <% if admin_role? %>
+        <div class='navbar-header'>
+          <a class='navbar-brand' href='/admin/users'>Users</a>
+        </div>
+      <% end %>
+      <div class='navbar-header navbar-right'>
+        <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'navbar-brand' %>
+      </div>
+    <% end %>
+  </div>
+</nav>

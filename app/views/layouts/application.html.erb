@@ -2,16 +2,32 @@
 <html>
 <head>
   <title>TwitterProjectMaxi</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <%= yield %>
+  <%= render 'shared/navigation' %>
+  <div id='main-container' class='container'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <% if notice %>
+            <div class='alert alert-info' role='alert'><%= notice %></div>
+          <% end %>
+          <% if alert %>
+            <div class='alert alert-warning' role='alert'><%= alert %></div>
+          <% end %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-2'>
+          <h3>Twitter Project</h3>
+        </div>
+        <div class='col-xs-9'>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>
