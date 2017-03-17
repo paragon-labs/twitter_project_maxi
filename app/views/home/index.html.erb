@@ -1,4 +1,11 @@
 <h1>Home</h1>
 <p>Trending Tweets in Uruguay:</p>
 
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% if admin_role? %>
+  <li>
+    <%= link_to('All Users', admin_users_path) %>
+  </li>
+<% end %>
+<li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+</li>
