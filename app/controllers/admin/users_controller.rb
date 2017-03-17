@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :reset_password]
   before_action :authorize
 
   def index
@@ -24,7 +24,11 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to admin_users_path
     else
+      if email_present?
        render 'edit'
+      else
+       render 'reset_password'
+      end
     end
   end
 
@@ -42,6 +46,10 @@ class Admin::UsersController < ApplicationController
     unless current_user.admin?
       redirect_to home_index_path
     end
+  end
+
+  def email_present?
+    params[:user][:email]
   end
 
 end
