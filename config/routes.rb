@@ -1,5 +1,6 @@
 TwitterProjectMaxi::Application.routes.draw do
-  get "home/index"
+  get 'home/index'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,7 +9,9 @@ TwitterProjectMaxi::Application.routes.draw do
   root 'home#index'
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resource :password, module: :users, only: [:edit, :update]
+    end
   end
 
   # Example of regular route:

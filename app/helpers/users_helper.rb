@@ -4,4 +4,8 @@ module UsersHelper
     current_user.admin?
   end
 
+  def format_email(user)
+    user.email.slice(/[^@]+/)
+  end
+
 end
