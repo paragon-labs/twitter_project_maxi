@@ -3,12 +3,14 @@
   <tr>
     <th>Email</th>
     <th>Admin?</th>
+    <th>Edit User</th>
   </tr>
 
   <% @users.each do |user| %>
     <tr>
       <td><%= user.email %> </td>
       <td><%= user.admin ? 'Yes' : 'No' %> </td>
+      <td><%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-link btn-xs' %> </td>
     </tr>
   <% end %>
 </table>
