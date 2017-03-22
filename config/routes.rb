@@ -1,5 +1,5 @@
 TwitterProjectMaxi::Application.routes.draw do
-  get "home/index"
+  get 'home/index'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,8 +8,14 @@ TwitterProjectMaxi::Application.routes.draw do
   root 'home#index'
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        get 'reset_password'
+      end
+    end
   end
+
+  #get 'admin/users/:id/reset_password', to: 'admin/users#reset_password', as: 'admin/reset_password'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
