@@ -3,16 +3,11 @@
 <%= form_for @user, url: admin_user_password_path do |f| %>
 
   <%= render partial: '/admin/users/errors', locals: { user: @user } %>
-
-  <form role='form'>
-
-    <%= render partial: '/admin/users/password_fields', locals: { f: f } %>
-
-    <br />
-    <div class='actions'>
-      <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset this User\'s password?' } %>
-      <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>
-    </div>
-  </form>
+  <%= render partial: '/admin/users/password_fields', locals: { f: f } %>
+  <br />
+  <div class='actions'>
+    <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset this User\'s password?' } %>
+    <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>
+  </div>
 
 <% end %>
