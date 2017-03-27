@@ -11,6 +11,7 @@ module Admin
       def update
         @user = User.find(params[:user_id])
         if @user.update(password_params)
+          flash[:notice] = "Password changed successfully."
           redirect_to admin_users_path
         else
           render :edit

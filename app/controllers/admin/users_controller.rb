@@ -15,6 +15,7 @@ module Admin
     def create
       @user = User.new(user_params)
       if @user.save
+        flash[:notice] = "User successfully created."
         redirect_to admin_users_path
       else
         render 'new'
@@ -23,6 +24,7 @@ module Admin
 
     def update
       if @user.update(user_params)
+        flash[:notice] = "User updated successfully."
         redirect_to admin_users_path
       else
         render 'edit'
@@ -31,6 +33,7 @@ module Admin
 
     def destroy
       @user.destroy
+      flash[:alert] = "User deleted successfully."
       redirect_to admin_users_path
     end
 
