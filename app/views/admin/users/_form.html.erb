@@ -2,7 +2,6 @@
 
   <%= render partial: 'errors', locals: { user: user } %>
 
-  <form role='form'>
     <div class='form-group'>
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true , class: 'form-group' %>
@@ -24,6 +23,5 @@
       <%= f.submit 'Done', class: 'btn btn-success' %>
       <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>
     </div>
-  </form>
 
 <% end %>
