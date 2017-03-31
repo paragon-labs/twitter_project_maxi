@@ -49,6 +49,8 @@ group :test do
   gem 'travis'
 end
 
+gem 'twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
