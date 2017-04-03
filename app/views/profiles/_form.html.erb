@@ -1,0 +1,15 @@
+<%= form_for @profile, url: profile_path do |f| %>
+
+  <%= render partial: 'errors', locals: { profile: @profile } %>
+
+  <div class='form-group'>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true , class: 'form-group' %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit 'Done', class: 'btn btn-success' %>
+    <%= link_to 'Cancel', home_index_path, class: 'btn btn-link' %>
+  </div>
+
+<% end %>
