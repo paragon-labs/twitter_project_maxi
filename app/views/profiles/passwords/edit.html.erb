@@ -1,15 +1,4 @@
 <h1>Reset My Password</h1>
 <br />
-<%= form_for @profile, url: profile_password_path do |f| %>
 
-  <%= render partial: '/profiles/errors', locals: { profile: @profile } %>
-
-  <%= render partial: 'password_fields', locals: { f: f } %>
-
-  <br />
-  <div class='actions'>
-    <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset your password?' } %>
-    <%= link_to 'Cancel', home_index_path, class: 'btn btn-link' %>
-  </div>
-
-<% end %>
+<%= render 'form' %>
