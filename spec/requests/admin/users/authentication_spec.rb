@@ -11,7 +11,7 @@ describe 'Log in / Log out' do
     fill_in 'Password', with: 'password'
     click_button  'Log in'
 
-    expect(page).to have_css('.alert-warning', text: 'Invalid email or password.')
+    expect(page).to have_css('.alert-warning', text: 'Invalid Email or password.')
   end
 
   it 'signs up' do
