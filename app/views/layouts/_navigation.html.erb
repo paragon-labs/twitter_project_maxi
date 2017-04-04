@@ -1,16 +1,16 @@
 <%= content_for :navigation do %>
-  <nav class="navbar navbar-inverse">
+  <nav class='navbar navbar-inverse'>
     <div class='container'>
       <ul class='nav navbar-nav navbar-right'>
 
         <% if user_signed_in? %>
 
-          <%= top_nav_tab 'Home', home_index_path , current_tab %>
+          <%= nav_tab 'Home', home_index_path , current_tab %>
 
-          <%= top_nav_tab 'My Profile', edit_profile_path, current_tab %>
+          <%= nav_tab 'My Profile', edit_profile_path, current_tab %>
 
           <% if admin_role? %>
-            <%= top_nav_tab 'Admin', admin_users_path, current_tab %>
+            <%= nav_tab 'Admin', admin_users_path, current_tab %>
           <% end %>
 
           <li role='presentation'>

@@ -1,4 +1,5 @@
 <%= currently_at('Admin') %>
+<%= currently_at_left('Admin', 'Users') %>
 <h1>Reset <%= format_email @user %> Password</h1>
 <br />
 <%= form_for @user, url: admin_user_password_path do |f| %>

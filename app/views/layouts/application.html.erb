@@ -20,14 +20,11 @@
       </div>
     </div>
     <div class='row'>
-      <% if user_signed_in? %>
-        <div class='col-xs-2'>
-          <h2>Actions</h2>
-          <ul class='nav nav-pills nav-stacked'>
-            <%= yield :letf_navigation %>
-          </ul>
-        </div>
-      <% end %>
+      <div class='col-xs-2 test'>
+        <ul class='nav nav-pills nav-stacked'>
+          <%= yield :left_navigation %>
+        </ul>
+      </div>
       <div class='col-lg-8 col-centered'>
         <%= yield %>
       </div>
