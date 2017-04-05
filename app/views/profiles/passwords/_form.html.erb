@@ -1,0 +1,20 @@
+<%= form_for @profile, url: profile_password_path do |f| %>
+
+  <%= render partial: '/profiles/errors', locals: { profile: @profile } %>
+
+  <div class='form-group'>
+    <%= f.label :password %> <br />
+    <%= f.password_field :password, autocomplete: 'off', class: 'form-group' %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-group' %>
+  </div>
+
+  <br />
+  <div class='actions'>
+    <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset your password?' } %>
+    <%= link_to 'Cancel', home_index_path, class: 'btn btn-link' %>
+  </div>
+
+<% end %>

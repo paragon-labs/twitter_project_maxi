@@ -8,6 +8,10 @@ TwitterProjectMaxi::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  resource :profile, only: [:edit, :update] do
+    resource :password, module: :profiles, only: [:edit, :update]
+  end
+
   namespace :admin do
     resources :users do
       resource :password, module: :users, only: [:edit, :update]
