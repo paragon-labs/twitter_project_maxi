@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   def update
     if @profile.update(profile_params)
       flash[:notice] = 'Profile updated successfully.'
-      redirect_to home_index_path
+      redirect_to tweets_path
     else
       render 'edit'
     end

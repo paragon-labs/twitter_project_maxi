@@ -27,7 +27,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
         get :index
 
-        expect(response).to redirect_to(home_index_path)
+        expect(response).to redirect_to(tweets_path)
       end
 
       it 'has a 200 status code for admin' do
@@ -49,7 +49,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
         post :create, user: { email: 'test@test.test', password: 'password', password_confirmation: 'password' }
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 
@@ -81,7 +81,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
         put :update, id: user, user: { email: 'test@test.test'}
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 

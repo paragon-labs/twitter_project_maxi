@@ -27,7 +27,7 @@ describe 'Log in / Log out' do
   it 'signs out' do
     login_as user
 
-    visit home_index_path
+    visit tweets_path
     click_link 'Logout'
 
     expect(page).to have_content('Log in')

@@ -6,7 +6,7 @@ module Profiles
     def update
       if @profile.update(password_params)
         flash[:notice] = 'Password changed successfully.'
-        redirect_to home_index_path
+        redirect_to tweets_path
       else
         render :edit
       end

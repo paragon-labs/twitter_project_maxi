@@ -13,7 +13,7 @@ RSpec.describe Admin::Users::PasswordsController, type: :controller do
 
         put :update, user_id: user, user: { password: 'password', password_confirmation: 'password' }
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 

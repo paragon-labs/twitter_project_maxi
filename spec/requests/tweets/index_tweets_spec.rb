@@ -10,7 +10,7 @@ describe 'Home page' do
 
   context 'List Tweets' do
     it 'shows all tweets' do
-      visit home_index_path
+      visit tweets_path
 
       expect(page).to have_css('blockquote', class: 'twitter-tweet', count:10)
     end
@@ -18,7 +18,7 @@ describe 'Home page' do
 
   context 'Navigation bar' do
     it 'renders My Profile Page' do
-      visit home_index_path
+      visit tweets_path
 
       click_link 'My Profile'
 
