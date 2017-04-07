@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Home page' do
+describe 'Tweets page', :vcr do
 
   let(:user) { create :user }
 

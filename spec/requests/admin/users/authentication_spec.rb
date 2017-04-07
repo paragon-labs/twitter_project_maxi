@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Log in / Log out' do
+describe 'Log in / Log out', :vcr do
 
   let(:user) { create(:user) }
 

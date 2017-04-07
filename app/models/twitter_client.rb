@@ -1,5 +1,7 @@
 class TwitterClient
 
+  delegate :search, to: :@client
+
   def initialize
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = Rails.application.secrets.consumer_key
@@ -7,10 +9,6 @@ class TwitterClient
       config.access_token = Rails.application.secrets.access_token
       config.access_token_secret = Rails.application.secrets.access_token_secret
     end
-  end
-
-  def search(string)
-    @client.search(string)
   end
 
 end
