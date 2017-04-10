@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/navigation' %>
+  <%= yield :navigation %>
   <div id='main-container' class='container'>
     <div class='row'>
       <div class='col-xs-12'>
@@ -20,9 +20,11 @@
       </div>
     </div>
     <div class='row'>
-      <% if user_signed_in? %>
-        <%= render 'layouts/left_navigation' %>
-      <% end %>
+      <div class='col-xs-2 test'>
+        <ul class='nav nav-pills nav-stacked'>
+          <%= yield :left_navigation %>
+        </ul>
+      </div>
       <div class='col-lg-8 col-centered'>
         <%= yield %>
       </div>
