@@ -1,0 +1,21 @@
+laguage: ruby
+rvm:
+  - 2.3.1
+
+notifications:
+  email: false
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - rake db:create
+  - rake db:migrate
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_a25c2c0b87ad_key -iv $encrypted_a25c2c0b87ad_iv -in config/secrets.yml.enc -out config/secrets.yml -d
+
+install:
+  - bundle install

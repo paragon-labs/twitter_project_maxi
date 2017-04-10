@@ -45,6 +45,8 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'rake', '12.0.0'
+  gem 'travis'
 end
 
 # Use ActiveModel has_secure_password
