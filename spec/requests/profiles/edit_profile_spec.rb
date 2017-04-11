@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Edit Profile' do
+describe 'Edit Profile', :vcr do
 
   let(:user) { create(:user) }
 

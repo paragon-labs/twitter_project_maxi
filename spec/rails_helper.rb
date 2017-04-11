@@ -62,11 +62,18 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  VCR.configure do |config|
+    config.cassette_library_dir = Rails.root.join('spec', 'cassettes')
+    config.hook_into :webmock
+    config.configure_rspec_metadata!
   end
 
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Log in / Log out' do
+describe 'Log in / Log out', :vcr do
 
   let(:user) { create(:user) }
 
@@ -27,7 +27,7 @@ describe 'Log in / Log out' do
   it 'signs out' do
     login_as user
 
-    visit home_index_path
+    visit tweets_path
     click_link 'Logout'
 
     expect(page).to have_content('Log in')

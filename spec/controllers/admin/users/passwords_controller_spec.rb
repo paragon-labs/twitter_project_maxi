@@ -8,12 +8,12 @@ RSpec.describe Admin::Users::PasswordsController, type: :controller do
   describe 'PATCH #update' do
 
     context 'when user non-admin' do
-      it 'redirects to home page' do
+      it 'redirects to tweets page' do
         sign_in user
 
         put :update, user_id: user, user: { password: 'password', password_confirmation: 'password' }
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 

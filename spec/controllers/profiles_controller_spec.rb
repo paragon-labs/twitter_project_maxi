@@ -19,7 +19,7 @@ RSpec.describe ProfilesController, type: :controller do
     it 'updates the user if request is valid' do
       put :update, user: { email: 'test@test.test' }
 
-      expect(response).to redirect_to home_index_path
+      expect(response).to redirect_to tweets_path
     end
 
   end

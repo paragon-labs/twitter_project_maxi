@@ -47,7 +47,11 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rake', '12.0.0'
   gem 'travis'
+  gem 'vcr'
+  gem 'webmock'
 end
+
+gem 'twitter'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

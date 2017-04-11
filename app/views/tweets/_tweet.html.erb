@@ -1,0 +1,24 @@
+<blockquote class='twitter-tweet'>
+
+  <%= link_to tweet.user.url.to_s, title:'profile' do %>
+    <%= image_tag(tweet.user.profile_image_url, class: 'avatar') %>
+    <span class='name'><%= tweet.user.name %><br> </span>
+    <span class='screen-name'>@<%= tweet.user.screen_name %></span>
+  <% end %>
+
+  <p class='twitter-tweet'>
+    <%= tweet.full_text %><br>
+    <% tweet.urls.each do |link| %>
+      <%= link_to link.url.to_s, link.expanded_url.to_s %><br>
+    <% end %>
+  </p>
+
+  <div>
+    <% tweet.media.each do |media_object| %>
+      <%= link_to media_object.media_url.to_s, title:'media' do %>
+        <%= image_tag(media_object.media_url, class: 'media') %>
+      <% end %>
+    <% end %>
+  </div>
+
+</blockquote>

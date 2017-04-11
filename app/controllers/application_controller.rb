@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless current_user.admin?
-      redirect_to home_index_path
+      redirect_to tweets_path
     end
   end
 

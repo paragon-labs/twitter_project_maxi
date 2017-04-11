@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
+RSpec.describe TweetsController, type: :controller do
 
   let(:user) { create :user }
 
-  describe 'GET #index' do
+  describe 'GET #index', :vcr do
 
     context 'when user logged in' do
-      it 'renders Home index page' do
+      it 'renders tweets index page' do
         sign_in user
 
         get :index

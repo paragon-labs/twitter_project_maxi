@@ -22,12 +22,12 @@ RSpec.describe Admin::UsersController, type: :controller do
         expect(response).to have_http_status(302)
       end
 
-      it 'redirects non-admin users to home' do
+      it 'redirects non-admin users to tweets' do
         sign_in user
 
         get :index
 
-        expect(response).to redirect_to(home_index_path)
+        expect(response).to redirect_to(tweets_path)
       end
 
       it 'has a 200 status code for admin' do
@@ -44,12 +44,12 @@ RSpec.describe Admin::UsersController, type: :controller do
   describe 'POST #create' do
 
     context 'when user non-admin' do
-      it 'redirects to home page' do
+      it 'redirects to tweets page' do
         sign_in user
 
         post :create, user: { email: 'test@test.test', password: 'password', password_confirmation: 'password' }
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 
@@ -76,12 +76,12 @@ RSpec.describe Admin::UsersController, type: :controller do
   describe 'PATCH #update' do
 
     context 'when user non-admin' do
-      it 'redirects to home page' do
+      it 'redirects to tweets page' do
         sign_in user
 
         put :update, id: user, user: { email: 'test@test.test'}
 
-        expect(response).to redirect_to home_index_path
+        expect(response).to redirect_to tweets_path
       end
     end
 
@@ -109,7 +109,7 @@ RSpec.describe Admin::UsersController, type: :controller do
     let!(:new_user) { create :user, email: 'test@test.test' }
 
     context 'when user non-admin' do
-      it 'redirects to home page' do
+      it 'redirects to tweets page' do
         sign_in user
 
         expect{ delete :destroy, id: new_user }.to_not change{ User.count }

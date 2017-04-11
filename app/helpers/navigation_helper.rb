@@ -16,7 +16,7 @@ module NavigationHelper
   end
 
   def left_tab_sub_tabs(tab, sub_tab)
-    path = tab == 'Admin' ? 'admin' : 'home'
+    path = tab == 'Admin' ? 'admin' : 'tweets'
     render partial: "#{path}/left_nav", locals: { current_sub_tab: sub_tab }
   end
 
