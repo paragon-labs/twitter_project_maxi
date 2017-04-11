@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject(:tweet) { build(:tweet) }
+
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of :number }
+    it { is_expected.to validate_uniqueness_of :number }
+    it { is_expected.to have_many :favorites }
+    it { is_expected.to have_many(:users).through(:favorites) }
+  end
+
 end
