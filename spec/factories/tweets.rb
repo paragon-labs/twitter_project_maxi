@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :tweet do
     sequence(:number) { |n| n }
-    text "MyText"
+    text 'MyText'
 
     factory :tweet_with_users do
       after(:create) do |tweet|

@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def index
     @favorites = current_user.faved_tweets
   end
-  
+
   def create
     user = current_user
     tweet = Tweet.find_or_initialize_by(number: faved_tweet_params[:number]) do |t|

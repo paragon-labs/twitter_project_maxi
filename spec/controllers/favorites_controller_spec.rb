@@ -12,7 +12,7 @@ RSpec.describe FavoritesController, type: :controller do
 
     context 'adding a new favorite' do
       it 'should add the new favorite' do
-        expect { post :create, tweet: { number: 500, text: 'some_text' }}.to change{ user.faved_tweets.count }.by(1)
+        expect { post :create, tweet: { number: 500, text: 'some_text' } }.to change{ user.faved_tweets.count }.by(1)
       end
     end
 
