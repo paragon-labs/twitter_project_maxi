@@ -57,7 +57,13 @@ img.media {
   max-width: 95%;
 }
 
-div.stream-item-footer.margin-favorite {
-  margin-top: 10px;
-  margin-left: 5px;
+div.container {
+  position: relative;
+  width: auto;
+}
+
+div.top-right {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
