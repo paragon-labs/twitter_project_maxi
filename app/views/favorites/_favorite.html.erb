@@ -2,7 +2,10 @@
 
   <div class='container'>
     <div class='top-right'>
-      <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='UnFavorite'></span>
+      <%= button_to favorite_path(favorite.number), method: :delete, data: { confirm: "Unfavorite this Tweet?" },
+                                                    class:'btn btn-default btn-sm' do %>
+        <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='Unfavorite'></span>
+      <% end %>
     </div>
     <div>
       <%= link_to favorite.user_url, title:'profile' do %>

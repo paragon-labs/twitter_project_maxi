@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     faved_tweets << tweet
   end
 
+  def unfavorite!(tweet)
+    faved_tweets.destroy(tweet)
+  end
+
 end

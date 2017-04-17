@@ -8,6 +8,10 @@ RSpec.describe FavoritesController, type: :controller do
     sign_in user
   end
 
+  setup do
+    @request.env['HTTP_REFERER'] = favorites_path
+  end
+
   describe 'GET #index' do
     context 'listing favorites' do
       it 'should list all my favorites' do
@@ -34,6 +38,16 @@ RSpec.describe FavoritesController, type: :controller do
       end
     end
 
+  end
+
+  describe 'DELETE #destroy' do
+    context 'unfavorite a tweet' do
+      it 'deletes a favorite' do
+        tweet = user.faved_tweets.first
+
+        expect{ delete :destroy, id: tweet.number }.to change{ Favorite.count }.by(-1)
+      end
+    end
   end
 
 end

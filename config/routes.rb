@@ -9,7 +9,7 @@ TwitterProjectMaxi::Application.routes.draw do
 
   resources :tweets, only: :index
 
-  resources :favorites, only: [:index, :create]
+  resources :favorites, only: [:index, :create, :destroy]
 
   resource :profile, only: [:edit, :update] do
     resource :password, module: :profiles, only: [:edit, :update]

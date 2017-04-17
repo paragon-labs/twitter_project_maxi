@@ -3,7 +3,10 @@
   <div class='container'>
     <div class='top-right'>
       <% if already_faved? tweet.id %>
-        <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='UnFavorite'></span>
+        <%= button_to favorite_path(tweet.id), method: :delete, data: { confirm: "Unfavorite this Tweet?" },
+                                               class:'btn btn-default btn-sm' do %>
+          <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='Unfavorite'></span>
+        <% end %>
       <% else %>
         <%= button_to favorites_path(tweet: { number: tweet.id, text: tweet.full_text,
                                               user_name: tweet.user.name, user_screen_name: tweet.user.screen_name,
