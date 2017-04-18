@@ -1,0 +1,34 @@
+<blockquote class='twitter-tweet'>
+
+  <div class='container'>
+    <div class='top-right'>
+      <%= link_to edit_admin_tweet_path(tweet), class:'btn btn-default btn-sm' do %>
+        <span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Edit Tweet'></span>
+      <% end %>
+      <%= link_to admin_tweet_path(tweet), method: :delete, data: { confirm: 'Delete this tweet?' },
+                                           class:'btn btn-default btn-sm' do %>
+        <span class='glyphicon glyphicon-remove' data-toggle='tooltip' title='Delete Tweet'></span>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to tweet.user_url, title:'profile' do %>
+        <%= image_tag(tweet.user_profile_img, class: 'avatar') %>
+        <span class='name'><%= tweet.user_name %><br> </span>
+        <span class='screen-name'>@<%= tweet.user_screen_name %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <p class='twitter-tweet'>
+    <%= tweet.text %><br>
+  </p>
+
+  <div>
+    <% tweet.tweet_images.each do |image| %>
+      <%= link_to image.url, title:'media' do %>
+        <%= image_tag((image.url), class: 'media') %>
+      <% end %>
+    <% end %>
+  </div>
+
+</blockquote>

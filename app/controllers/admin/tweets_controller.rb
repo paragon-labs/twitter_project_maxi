@@ -1,7 +1,7 @@
 module Admin
   class TweetsController < ApplicationController
 
-    before_action :set_tweet, only: [:edit, :update]
+    before_action :set_tweet, only: [:edit, :update, :destroy]
     before_action :authorize
 
     def index
@@ -29,6 +29,12 @@ module Admin
       else
         render 'edit'
       end
+    end
+
+    def destroy
+      @tweet.destroy
+      flash[:notice] = 'Tweet deleted successfully.'
+      redirect_to admin_tweets_path
     end
 
     private
