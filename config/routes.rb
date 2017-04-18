@@ -7,7 +7,9 @@ TwitterProjectMaxi::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'tweets#index'
 
-  resources :tweets, only: [:index]
+  resources :tweets, only: :index
+
+  resources :favorites, only: [:index, :create, :destroy]
 
   resource :profile, only: [:edit, :update] do
     resource :password, module: :profiles, only: [:edit, :update]

@@ -4,4 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :favorites
+  has_many :faved_tweets, source: :tweet, through: :favorites
+
+  def favorite!(tweet)
+    faved_tweets << tweet
+  end
+
+  def unfavorite!(tweet)
+    faved_tweets.destroy(tweet)
+  end
+
 end
