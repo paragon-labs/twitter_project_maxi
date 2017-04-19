@@ -13,6 +13,13 @@ class FavoritesController < ApplicationController
     redirect_to tweets_path
   end
 
+  def destroy
+    tweet = Tweet.find_by!(number: params[:id])
+    current_user.unfavorite!(tweet)
+    flash[:notice] = 'Tweet removed from favorites.'
+    redirect_to :back
+  end
+
   private
 
   def faved_tweet_params

@@ -2,7 +2,7 @@
 
   <div class='container'>
     <div class='top-right'>
-      <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='UnFavorite'></span>
+      <%= unfavorite_button(favorite.number) %>
     </div>
     <div>
       <%= link_to favorite.user_url, title:'profile' do %>

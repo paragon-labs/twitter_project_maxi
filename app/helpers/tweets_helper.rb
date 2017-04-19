@@ -15,4 +15,12 @@ module TweetsHelper
     end
   end
 
+  def unfavorite_button(tweet_number)
+    button_to favorite_path(tweet_number), method: :delete, data: { confirm: "Unfavorite this Tweet?" },
+                                       class:'btn btn-default btn-sm' do
+      content_tag(:span, '', class:'glyphicon glyphicon-star',
+                  'data-toggle':'tooltip', 'title':'Unfavorite')
+    end
+  end
+
 end
