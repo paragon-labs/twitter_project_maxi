@@ -20,7 +20,7 @@
   <p class='twitter-tweet'>
     <%= tweet.full_text %><br>
     <% tweet.urls.each do |link| %>
-      <%= link_to link.url.to_s, link.expanded_url.to_s %><br>
+      <%= link_to link.display_url.to_s, link.expanded_url.to_s %><br>
     <% end %>
   </p>
 
