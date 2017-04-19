@@ -8,12 +8,18 @@
       <th class= 'text-center'>Tweet id</th>
       <th class= 'text-center'>Tweet number</th>
       <th class= 'text-center'>Tweet text fragment</th>
+      <th class= 'text-center'>Actions</th>
     </thead>
     <% @tweets.each do |tweet| %>
       <tr class= 'text-center'>
         <td><%= tweet.id %></td>
         <td><%= tweet.number %></td>
         <td class='fit-text'><%= tweet.text %></td>
+        <td>
+          <%= link_to edit_admin_tweet_path(tweet) do %>
+            <span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Edit Tweet'></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
