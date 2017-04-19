@@ -1,10 +1,21 @@
 <blockquote class='twitter-tweet'>
 
-  <%= link_to tweet.user.url.to_s, title:'profile' do %>
-    <%= image_tag(tweet.user.profile_image_url, class: 'avatar') %>
-    <span class='name'><%= tweet.user.name %><br> </span>
-    <span class='screen-name'>@<%= tweet.user.screen_name %></span>
-  <% end %>
+  <div class='container'>
+    <div class='top-right'>
+      <% if current_user.faved?(tweet.id) %>
+        <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='UnFavorite'></span>
+      <% else %>
+        <%= favorite_button(tweet) %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to tweet.user.url.to_s, title:'profile' do %>
+        <%= image_tag(tweet.user.profile_image_url, class: 'avatar') %>
+        <span class='name'><%= tweet.user.name %><br> </span>
+        <span class='screen-name'>@<%= tweet.user.screen_name %></span>
+      <% end %>
+    </div>
+  </div>
 
   <p class='twitter-tweet'>
     <%= tweet.full_text %><br>

@@ -1,7 +1,7 @@
 module UsersHelper
 
-  def admin_role?
-    current_user.admin?
+  def admin_role?(user = current_user)
+    user.admin?
   end
 
   def format_email(user)
