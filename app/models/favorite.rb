@@ -10,7 +10,7 @@ class Favorite < ActiveRecord::Base
 
   def check_tweet_status
     if tweet.users.empty?
-      tweet.destroy
+      tweet.delete
     end
   end
 

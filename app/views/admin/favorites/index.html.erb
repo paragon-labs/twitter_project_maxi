@@ -1,0 +1,24 @@
+<%= currently_at('Admin') %>
+<%= currently_at_left('Admin', 'Favorites') %>
+
+<div class='col-lg-10'>
+  <h1>System Favorites</h1>
+
+  <table class='table table-hover'>
+    <thead class='thead-default'>
+      <th class= 'text-center'>User id</th>
+      <th class= 'text-center'>User email</th>
+      <th class= 'text-center'>Tweet id</th>
+      <th class= 'text-center'>Tweet text fragment</th>
+    </thead>
+    <% @favorites.each do |favorite| %>
+      <tr class= 'text-center'>
+        <td><%= favorite.user_id %></td>
+        <td><%= favorite.user.email %></td>
+        <td><%= favorite.tweet_id %></td>
+        <td class='fit-text'><%= favorite.tweet.text %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
