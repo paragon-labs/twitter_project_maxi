@@ -28,4 +28,29 @@ RSpec.describe Admin::FavoritesController, type: :controller do
 
   end
 
+  describe 'POST #create' do
+
+    let(:tweet) { build(:tweet) }
+
+    context 'when user is admin' do
+      it 'creates a new favorite' do
+        sign_in admin
+
+        post :create, favorite: { user_id: admin.id, tweet_id: tweet.id }
+
+        expect(response).to redirect_to admin_favorites_path
+      end
+    end
+    context 'when user is not admin' do
+      it 'redirects to the home page' do
+        sign_in user
+
+        post :create, favorite: { user_id: user.id, tweet_id: tweet.id }
+
+        expect(response).to redirect_to tweets_path
+      end
+    end
+
+  end
+
 end

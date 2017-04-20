@@ -1,0 +1,24 @@
+<%= form_for [:admin, favorite] do |f| %>
+
+  <%= render partial: 'errors', locals: { favorite: favorite } %>
+  <div class='col-lg-5'>
+
+    <div class='form-group'>
+      <%= f.label :user %><br />
+      <%= f.select :user_id, @users.collect { |user| [user.email, user.id] }, {}, class:'form-control' %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :tweet %><br />
+      <%= f.select :tweet_id, @tweets.collect { |tweet| [tweet.id, tweet.id] }, {}, class:'form-control' %>
+    </div>
+
+    <br />
+    <div class='actions'>
+      <%= f.submit 'Done', class: 'btn btn-success' %>
+      <%= link_to 'Cancel', admin_favorites_path, class: 'btn btn-link' %>
+    </div>
+
+  </div>
+
+<% end %>
