@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorites = current_user.faved_tweets.includes(:tweet_images)
+  end
+
   def create
     if current_user.favorite!(tweet)
       flash[:notice] = 'Tweet added to favorites.'
