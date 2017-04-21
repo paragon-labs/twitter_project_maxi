@@ -2,7 +2,7 @@ module Admin
   class FavoritesController < ApplicationController
 
     before_action :authorize
-    before_action :set_favorite, only: [:edit, :update]
+    before_action :set_favorite, only: [:edit, :update, :destroy]
 
     def index
       @favorites = Favorite.all.includes(:user, :tweet)
@@ -38,6 +38,12 @@ module Admin
       end
     end
 
+    def destroy
+      @favorite.destroy
+      flash[:notice] = 'Favorite removed successfully.'
+      redirect_to admin_favorites_path
+    end
+
     private
 
     def favorite_params
@@ -47,6 +53,6 @@ module Admin
     def set_favorite
       @favorite = Favorite.find(params[:id])
     end
-
+    
   end
 end
