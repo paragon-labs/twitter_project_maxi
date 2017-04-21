@@ -2,6 +2,7 @@ module Admin
   class FavoritesController < ApplicationController
 
     before_action :authorize
+    before_action :set_favorite, only: [:edit, :update]
 
     def index
       @favorites = Favorite.all.includes(:user, :tweet)
@@ -9,6 +10,11 @@ module Admin
 
     def new
       @favorite = Favorite.new
+      @users = User.all
+      @tweets = Tweet.all
+    end
+
+    def edit
       @users = User.all
       @tweets = Tweet.all
     end
@@ -23,10 +29,23 @@ module Admin
       end
     end
 
+    def update
+      if @favorite.update(favorite_params)
+        flash[:notice] = 'Favorite updated successfully.'
+        redirect_to admin_favorites_path
+      else
+        render 'edit'
+      end
+    end
+
     private
 
     def favorite_params
       params.require(:favorite).permit(:user_id, :tweet_id)
+    end
+
+    def set_favorite
+      @favorite = Favorite.find(params[:id])
     end
 
   end

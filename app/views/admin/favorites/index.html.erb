@@ -10,6 +10,7 @@
       <th class= 'text-center'>User email</th>
       <th class= 'text-center'>Tweet id</th>
       <th class= 'text-center'>Tweet text fragment</th>
+      <th class= 'text-center'>Actions</th>
     </thead>
     <% @favorites.each do |favorite| %>
       <tr class= 'text-center'>
@@ -17,10 +18,14 @@
         <td><%= favorite.user.email %></td>
         <td><%= favorite.tweet_id %></td>
         <td class='fit-text'><%= favorite.tweet.text %></td>
+        <td>
+          <%= link_to edit_admin_favorite_path(favorite) do %>
+            <span class='glyphicon glyphicon-pencil' data-toggle='tooltip' data-placement='right' title='Edit Favorite'></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
-
   <div>
     <%= link_to 'Create New Favorite', new_admin_favorite_path, class: 'btn btn-primary' %>
   </div>
