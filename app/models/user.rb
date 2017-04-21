@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     faved_tweets << tweet
   end
 
+  def unfavorite!(tweet)
+    faved_tweets.destroy(tweet)
+  end
+
   def faved?(tweet_number)
     faved_tweets.any? { |tweet| tweet.number == tweet_number }
   end

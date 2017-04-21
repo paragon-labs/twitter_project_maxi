@@ -3,7 +3,7 @@
   <div class='container'>
     <div class='top-right'>
       <% if current_user.faved?(tweet.id) %>
-        <span class='glyphicon glyphicon-star' data-toggle='tooltip' title='UnFavorite'></span>
+        <%= unfavorite_button(tweet.id) %>
       <% else %>
         <%= favorite_button(tweet) %>
       <% end %>
