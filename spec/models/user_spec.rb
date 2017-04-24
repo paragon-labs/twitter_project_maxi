@@ -5,12 +5,20 @@ RSpec.describe User, type: :model do
   subject(:user) { create :user_with_tweets }
   let(:tweet) { create :tweet }
 
+  describe 'Attributes' do
+    it { is_expected.to have_attached_file(:avatar) }
+  end
+
+  describe 'Associations' do
+    it { is_expected.to have_many :favorites }
+    it { is_expected.to have_many(:faved_tweets).through(:favorites) }
+  end
+
   describe 'Validations' do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :password }
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-    it { is_expected.to have_many :favorites }
-    it { is_expected.to have_many(:faved_tweets).through(:favorites) }
+    it { is_expected.to validate_attachment_content_type(/\Aimage\/.*\z/) }
 
     it 'is invalid without a proper email format' do
       expect(build(:user, email: 'testattest.test')).not_to be_valid

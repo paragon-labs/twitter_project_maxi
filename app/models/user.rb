@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :faved_tweets, source: :tweet, through: :favorites
 
+  has_attached_file :avatar, styles: { medium: '210x210>', thumb: '48x48>' } , default_url: ':style/default_avatar.png'
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   def favorite!(tweet)
     faved_tweets << tweet
   end

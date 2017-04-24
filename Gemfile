@@ -39,7 +39,7 @@ gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test do
@@ -54,6 +54,8 @@ end
 gem 'twitter'
 
 gem 'rails_autolink'
+
+gem 'paperclip', '~> 5.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

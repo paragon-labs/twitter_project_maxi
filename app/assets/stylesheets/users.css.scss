@@ -22,3 +22,14 @@ div.left-nav-fixed {
 a.btn-no-padding {
   padding-left: 0;
 }
+
+.profile_avatar {
+  border-radius: 8px;
+  background: #428bca;
+  border: 5px solid #428bca;
+  border-radius: 12px;
+  box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+  max-height: 200px;
+  position: relative;
+  width: 200px;
+}
