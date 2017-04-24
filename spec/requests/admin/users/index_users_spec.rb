@@ -14,12 +14,13 @@ describe 'List Users' do
   end
 
   it 'has the proper Edit link' do
-    first(:link, 'Edit').click
+    first(:link, href: edit_admin_user_path(admin)).click
+
     expect(page).to have_content('Edit User')
   end
 
   it 'has the proper Delete link' do
-    expect(page).to have_link 'Delete'
+    expect(page).to have_link(href: admin_user_path(admin))
   end
 
 end
