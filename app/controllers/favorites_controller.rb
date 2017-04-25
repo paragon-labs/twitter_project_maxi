@@ -24,7 +24,7 @@ class FavoritesController < ApplicationController
 
   def faved_tweet_params
     params.require(:tweet).permit(:number, :text, :user_name, :user_screen_name,
-                                  :user_url, :user_profile_img, tweet_images_attributes: :url)
+                                  :user_url, :user_profile_img, tweet_images_attributes: :image)
   end
 
   def tweet

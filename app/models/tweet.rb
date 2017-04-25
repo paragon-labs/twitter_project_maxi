@@ -1,7 +1,7 @@
 class Tweet < ActiveRecord::Base
 
-  has_many :tweet_images
   has_many :favorites, dependent: :destroy
+  has_many :tweet_images, dependent: :destroy
   has_many :users, through: :favorites
 
   validates :number, presence: true

@@ -18,9 +18,9 @@
   </p>
 
   <div>
-    <% favorite.tweet_images.each do |image| %>
-      <%= link_to image.url, title:'media' do %>
-        <%= image_tag((image.url), class: 'media') %>
+    <% favorite.tweet_images.each do |tweet_image| %>
+      <%= link_to tweet_image.image.url, title:'media' do %>
+        <%= image_tag((tweet_image.image.url), class: 'media') %>
       <% end %>
     <% end %>
   </div>
