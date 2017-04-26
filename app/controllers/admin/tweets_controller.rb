@@ -10,7 +10,6 @@ module Admin
 
     def new
       @tweet = Tweet.new
-      @tweet.tweet_images.new
     end
 
     def create

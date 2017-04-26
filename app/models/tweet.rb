@@ -7,6 +7,6 @@ class Tweet < ActiveRecord::Base
   validates :number, presence: true
   validates :number, uniqueness: true
 
-  accepts_nested_attributes_for :tweet_images, :reject_if => lambda { |a| a[:image].blank? }
+  accepts_nested_attributes_for :tweet_images, reject_if: :all_blank, allow_destroy: true
 
 end
