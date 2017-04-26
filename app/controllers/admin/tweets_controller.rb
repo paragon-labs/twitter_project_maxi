@@ -10,6 +10,7 @@ module Admin
 
     def new
       @tweet = Tweet.new
+      @tweet.tweet_images.new
     end
 
     def create
@@ -41,7 +42,7 @@ module Admin
 
     def tweet_params
       params.require(:tweet).permit(:number, :text, :user_name, :user_screen_name,
-                                    :user_url, :user_profile_img)
+                                    :user_url, :user_profile_img, tweet_images_attributes: :image)
     end
 
     def set_tweet
