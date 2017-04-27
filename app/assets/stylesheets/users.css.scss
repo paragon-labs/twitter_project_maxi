@@ -1,8 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #f5f8fa;
+}
 
-.col-centered {
+div.col-centered {
   float: none;
   margin: 0 auto;
 }

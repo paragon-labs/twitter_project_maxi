@@ -1,0 +1,18 @@
+<div class='profile-card-container'>
+  <div class='profile-avatar card-margin-top'>
+    <%= image_tag(full_size_image(twitter_user.profile_image_url), class:'profile-avatar') %>
+  </div>
+  <%= render partial: 'profile_description', locals: { user: twitter_user } %>
+</div>
+
+<div class='profile-card-container'>
+  <span class='follow-label'>Followers</span>
+  <span class='follow-value'>(<%= twitter_user.followers_count %>)</span>:
+  <%= render partial: 'contacts_table', locals: { contacts: twitter_user.followers } %>
+</div>
+
+<div class='profile-card-container'>
+  <span class='follow-label'>Following</span>
+  <span class='follow-value'>(<%= twitter_user.friends_count %>)</span>:
+  <%= render partial: 'contacts_table', locals: { contacts: twitter_user.friends } %>
+</div>

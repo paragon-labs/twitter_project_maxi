@@ -18,7 +18,10 @@
   </div>
 
   <p class='twitter-tweet'>
-    <%= auto_link(tweet.full_text) %>
+    <%= tweet.full_text %><br>
+    <% tweet.urls.each do |link| %>
+      <%= link_to link.display_url.to_s, link.expanded_url.to_s %><br>
+    <% end %>
   </p>
 
   <div>

@@ -1,0 +1,28 @@
+<%= currently_at('Twitter_User') %>
+<%= currently_at_left('Tweets') %>
+<div class='col-lg-10'>
+
+  <% if @twitter_user.profile_banner_url? %>
+    <div class='row profile-banner'>
+      <%= image_tag(full_size_banner(@twitter_user.profile_banner_url), class:'profile-banner') %>
+    </div>
+  <% else %>
+    <div class='row empty-profile-banner'></div>
+  <% end %>
+
+  <div class='row'>
+    <div class='col-lg-4 profile-card-margin'>
+      <%= render partial: 'profile_section', locals: { twitter_user: @twitter_user } %>
+    </div>
+
+    <div class='col-lg-8 profile-card-margin'>
+      <div class='user-tweets-title'>
+        <h2 class='user-tweets-title'>Tweets:</h2>
+      </div>
+      <div class='user-tweets'>
+        <%= render partial: 'tweet', collection: @twitter_user.user_timeline %>
+      </div>
+    </div>
+  </div>
+
+</div>

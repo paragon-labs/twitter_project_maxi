@@ -23,4 +23,12 @@ module TweetsHelper
     end
   end
 
+  def full_size_image(image)
+    image.to_s.gsub('_normal.', '.')
+  end
+
+  def full_size_banner(banner)
+    banner.to_s[0..-4] + '1500x500'
+  end
+
 end

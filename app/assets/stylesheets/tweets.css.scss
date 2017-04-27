@@ -7,6 +7,7 @@ blockquote.twitter-tweet {
   padding: 16px;
   margin: 10px 0;
   width: 610px;
+  background-color: white;
   border: #ddd 1px solid;
   border-top-color: #eee;
   border-bottom-color: #bbb;
@@ -67,4 +68,39 @@ div.top-right {
   top: 5px;
   right: 5px;
   position: absolute;
+}
+
+div.user-tweets-title {
+  width: 100%;
+  background-color: white;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.15);
+}
+
+h2.user-tweets-title {
+  font-weight: 500;
+  color: #428bca;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+div.user-tweets {
+  width: 100%;
+  padding-top:10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border: #ddd 1px solid;
+  border-bottom-color: #bbb;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
