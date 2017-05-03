@@ -1,7 +1,8 @@
 <%= currently_at('My Profile') %>
 <%= currently_at_left('Tweets') %>
-<h1> Edit Profile </h1>
-<br />
-<%= render 'form' %>
-<br />
-<%= link_to 'Reset My Password', edit_profile_password_path, class: 'btn btn-link' %>
+<div class='col-lg-10'>
+  <h1> Edit Profile </h1>
+  <br />
+  <%= render 'form' %>
+  <%= link_to 'Reset My Password', edit_profile_password_path, class: 'btn btn-link' %>
+</div>
