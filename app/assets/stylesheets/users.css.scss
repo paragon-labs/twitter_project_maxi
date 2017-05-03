@@ -7,9 +7,16 @@
   margin: 0 auto;
 }
 
-nav.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
+div#main-container {
+  margin-top: 52px;
+}
+
+div.left-nav-fixed {
+  position: fixed;
+  width: inherit;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: -15px;
 }
 
 a.btn-no-padding {
