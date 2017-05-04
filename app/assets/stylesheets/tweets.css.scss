@@ -6,15 +6,13 @@ blockquote.twitter-tweet {
   display: inline-block;
   padding: 16px;
   margin: 10px 0;
-  max-width: 568px;
-  min-width: 568px;
+  width: 610px;
   border: #ddd 1px solid;
   border-top-color: #eee;
   border-bottom-color: #bbb;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
   font: bold 14px/18px Helvetica, Arial, sans-serif;
-  color: #000;
 }
 
 blockquote.twitter-tweet p {
@@ -50,20 +48,20 @@ img.avatar {
 }
 
 img.media {
+  max-height: 95%;
+  max-width: 95%;
   display: block;
   margin: 0 auto;
   border-radius: 7px;
-  max-height: 95%;
-  max-width: 95%;
 }
 
 div.container {
-  position: relative;
   width: auto;
+  position: relative;
 }
 
 div.top-right {
-  position: absolute;
   top: 5px;
   right: 5px;
+  position: absolute;
 }

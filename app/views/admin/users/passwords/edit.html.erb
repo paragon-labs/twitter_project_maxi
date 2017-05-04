@@ -1,17 +1,18 @@
 <%= currently_at('Admin') %>
 <%= currently_at_left('Admin', 'Users') %>
-<h1>Reset <%= format_email @user %> Password</h1>
-<br />
-<%= form_for @user, url: admin_user_password_path do |f| %>
+<div class='col-lg-10'>
 
-  <%= render partial: '/admin/users/errors', locals: { user: @user } %>
-
-  <%= render partial: '/admin/users/password_fields', locals: { f: f } %>
-
+  <h1>Reset <%= format_email @user %> Password</h1>
   <br />
-  <div class='actions'>
-    <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset this User\'s password?' } %>
-    <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>
-  </div>
+  <%= form_for @user, url: admin_user_password_path do |f| %>
 
-<% end %>
+    <%= render partial: '/admin/users/errors', locals: { user: @user } %>
+    <%= render partial: '/admin/users/password_fields', locals: { f: f } %>
+    <div class='actions'>
+      <%= f.submit 'Done', class: 'btn btn-success', data: { confirm: 'Reset this User\'s password?' } %>
+      <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>
+    </div>
+
+  <% end %>
+
+</div>

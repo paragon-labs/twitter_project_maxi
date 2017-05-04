@@ -1,9 +1,12 @@
-<h2> Actions </h2>
+<div class='col-lg-2 text-center'>
+  <div class='left-nav-fixed'>
 
-<ul class='nav nav-pills nav-stacked'>
+    <h2> Actions </h2>
 
-  <%= nav_tab 'Latest Tweets', tweets_path, current_sub_tab %>
+    <ul class='nav nav-pills nav-stacked'>
+      <%= nav_tab 'Latest Tweets', tweets_path, current_sub_tab %>
+      <%= nav_tab 'My Favorites', favorites_path, current_sub_tab %>
+    </ul>
 
-  <%= nav_tab 'My Favorites', favorites_path, current_sub_tab %>
-
-</ul>
+  </div>
+</div>
