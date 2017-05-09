@@ -19,7 +19,7 @@ TwitterProjectMaxi::Application.routes.draw do
     resources :users do
       resource :password, module: :users, only: [:edit, :update]
     end
-    resources :tweets, only: [:index]
+    resources :tweets, only: [:index, :new, :create]
   end
 
   # Example of regular route:
