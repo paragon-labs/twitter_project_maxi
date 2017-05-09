@@ -18,7 +18,16 @@
     </div>
   </div>
 
-  <br />
+  <br>
+  <div class='row'>
+    <div class='col-xs-2'>
+      <%= f.label :avatar %>
+      <%= image_tag user.avatar.url(:medium), class:'profile_avatar' %>
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <br>
   <div class='actions'>
     <%= f.submit 'Done', class: 'btn btn-success' %>
     <%= link_to 'Cancel', admin_users_path, class: 'btn btn-link' %>

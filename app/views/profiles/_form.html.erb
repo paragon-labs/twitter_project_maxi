@@ -7,6 +7,16 @@
     <%= f.email_field :email, autofocus: true , class: 'form-group' %>
   </div>
 
+  <div class='form-group'>
+    <div class='avatar'>
+      <%= f.label :avatar %><br>
+      <%= image_tag @profile.avatar.url(:medium), class:'profile_avatar' %><br>
+      <%= f.label :change_avatar %>
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <br>
   <div class='actions'>
     <%= f.submit 'Done', class: 'btn btn-success' %>
     <%= link_to 'Cancel', tweets_path, class: 'btn btn-link' %>
