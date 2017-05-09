@@ -29,6 +29,10 @@
     <% end %>
   </table>
 
+  <div class='flickr_pagination'>
+    <%= will_paginate @tweets %>
+  </div>
+
   <div>
     <%= link_to 'Create New Tweet', new_admin_tweet_path, class: 'btn btn-primary' %>
   </div>

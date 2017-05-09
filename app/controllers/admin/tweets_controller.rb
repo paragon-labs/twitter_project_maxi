@@ -5,7 +5,7 @@ module Admin
     before_action :authorize
 
     def index
-      @tweets = Tweet.all
+      @tweets = Tweet.all.paginate(page: params[:page], per_page: 10)
     end
 
     def new
