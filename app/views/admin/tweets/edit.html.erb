@@ -1,0 +1,7 @@
+<%= currently_at('Admin') %>
+<%= currently_at_left('Admin', 'Tweets') %>
+<div class='col-lg-10'>
+  <h1> Edit Tweet </h1>
+  <br />
+  <%= render partial: 'form', locals: { tweet: @tweet } %>
+</div>
