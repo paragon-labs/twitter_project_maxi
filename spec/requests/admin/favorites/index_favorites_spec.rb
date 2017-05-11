@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'List Favorites' do
 
-  let!(:user) { create(:user_with_tweets) }
+  let!(:users) { create_list(:user_with_tweets, 10) }
   let(:admin) { create(:admin) }
 
   before do
@@ -15,7 +15,7 @@ describe 'List Favorites' do
   end
 
   it 'shows the favorites table' do
-    expect(page).to have_selector('table tr', minimum: 2)
+    expect(page).to have_selector('table tr', count: 10)
   end
 
 end

@@ -31,6 +31,11 @@
       </tr>
     <% end %>
   </table>
+
+  <div class='flickr_pagination'>
+    <%= will_paginate @favorites %>
+  </div>
+
   <div>
     <%= link_to 'Create New Favorite', new_admin_favorite_path, class: 'btn btn-primary' %>
   </div>

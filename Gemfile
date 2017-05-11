@@ -57,7 +57,6 @@ gem 'rails_autolink'
 
 gem 'paperclip', '~> 5.0.0'
 
-
 gem 'cocoon'
 
 gem 'will_paginate', '~> 3.1.0'
