@@ -1,0 +1,13 @@
+<% if favorite.errors.any? %>
+  <div id='error_explanation'>
+    <h3>
+      <%= pluralize(favorite.errors.count, 'error') %> prohibited
+      this favorite from being saved:
+    </h3>
+    <ul>
+      <% favorite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

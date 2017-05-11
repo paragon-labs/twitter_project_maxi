@@ -1,0 +1,7 @@
+<%= currently_at('Admin') %>
+<%= currently_at_left('Admin', 'Favorites') %>
+<div class='col-lg-10'>
+  <h1>New favorite</h1>
+  <br />
+  <%= render partial: 'form', locals: { favorite: @favorite } %>
+</div>

@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_many :favorites }
+    it { is_expected.to have_many(:favorites).dependent(:destroy) }
     it { is_expected.to have_many(:faved_tweets).through(:favorites) }
   end
 

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :faved_tweets, source: :tweet, through: :favorites
 
   has_attached_file :avatar, styles: { medium: '210x210>', thumb: '48x48>' } , default_url: ':style/default_avatar.png'
