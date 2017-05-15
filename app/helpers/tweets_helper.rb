@@ -4,6 +4,16 @@ module TweetsHelper
     media_objects.map { |media_object| { image: media_object.media_url.to_s } }
   end
 
+  def unfavorite_button(tweet_number)
+    button_tag data: { tweet: "/#{tweet_number}" },
+               class:'btn btn-default btn-sm unfavorite-tweet' do
+
+      content_tag(:span, '', class:'glyphicon glyphicon-star',
+                  'data-toggle':'tooltip', 'title':'Unfavorite')
+    end
+
+  end
+
   def favorite_button(tweet)
     button_to favorites_path(tweet: { number: tweet.id, text: tweet.full_text,
                                       user_name: tweet.user.name, user_screen_name: tweet.user.screen_name,
@@ -12,14 +22,6 @@ module TweetsHelper
                                       }), class:'btn btn-default btn-sm' do
       content_tag(:span, '', class: 'glyphicon glyphicon-star-empty',
                   'data-toggle':'tooltip', 'title':'Favorite')
-    end
-  end
-
-  def unfavorite_button(tweet_number)
-    button_to favorite_path(tweet_number), method: :delete, data: { confirm: "Unfavorite this Tweet?" },
-                                       class:'btn btn-default btn-sm' do
-      content_tag(:span, '', class:'glyphicon glyphicon-star',
-                  'data-toggle':'tooltip', 'title':'Unfavorite')
     end
   end
 
