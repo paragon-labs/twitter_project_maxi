@@ -5,18 +5,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    if current_user.favorite!(tweet)
-      flash[:notice] = 'Tweet added to favorites.'
-    else
-      flash[:alert] = 'An error has occurred adding the favorite.'
-    end
-    redirect_to tweets_path
+    current_user.favorite!(tweet)
+    render json: { action: 'created', tweet_id: tweet.number }
   end
 
   def destroy
     tweet = Tweet.find_by!(number: params[:id])
     current_user.unfavorite!(tweet)
-    head :ok
+    render json: { tweet_params: tweet.attributes }
   end
 
   private
