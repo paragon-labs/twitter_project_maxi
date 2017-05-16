@@ -53,4 +53,28 @@ RSpec.describe Admin::FavoritesController, type: :controller do
 
   end
 
+  describe 'PATCH #update' do
+    let(:favorite) { create :favorite }
+
+    context 'when user is admin' do
+      it 'updates the favorite' do
+        sign_in admin
+
+        patch :update, id: favorite, favorite: { user_id: admin.id, tweet_id: favorite.tweet_id }
+
+        expect(response).to redirect_to admin_favorites_path
+      end
+    end
+    context 'when user is not an admin' do
+      it 'redirects to home page' do
+        sign_in user
+
+        patch :update, id: favorite, favorite: { user_id: user.id, tweet_id: favorite.tweet_id }
+
+        expect(response).to redirect_to tweets_path
+      end
+    end
+
+  end
+
 end
