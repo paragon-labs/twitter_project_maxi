@@ -74,6 +74,27 @@ RSpec.describe Admin::FavoritesController, type: :controller do
         expect(response).to redirect_to tweets_path
       end
     end
+    
+  end
+
+
+  describe 'DELETE #destroy' do
+    let!(:favorite) { create(:favorite) }
+
+    context 'when user is admin' do
+      it 'deletes the favorite' do
+        sign_in admin
+
+        expect { delete :destroy, id: favorite }.to change { Favorite.count }.by(-1)
+      end
+    end
+    context 'when user is not admin' do
+      it 'does not delete the favorite' do
+        sign_in user
+
+        expect { delete :destroy, id: favorite }.to_not change { Favorite.count }
+      end
+    end
 
   end
 
