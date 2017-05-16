@@ -24,7 +24,7 @@ describe TweetsHelper, :vcr do
     it 'parses media objects to hash of strings' do
       tweet = TwitterClient.new.search('463440424141459456').first
 
-      expect(media_urls(tweet.media).first).to have_key(:url)
+      expect(media_urls(tweet.media).first).to have_key(:image)
     end
   end
 

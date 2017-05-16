@@ -32,6 +32,19 @@
     <%= f.url_field :user_profile_img, class: 'form-group' %>
   </div>
 
+  <div class='form-group'>
+    <%= f.label :tweet_images %>
+    <div id='tweet_images'>
+      <%= f.fields_for :tweet_images, tweet.tweet_images do |t| %>
+        <%= render 'tweet_image_fields' , f: t %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Add image', f, :tweet_images %>
+      </div>
+    </div>
+  </div>
+
+  <br>
   <div class='actions'>
     <%= f.submit 'Done', class: 'btn btn-success' %>
     <%= link_to 'Cancel', admin_tweets_path, class: 'btn btn-link' %>

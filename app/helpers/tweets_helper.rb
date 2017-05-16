@@ -1,7 +1,7 @@
 module TweetsHelper
 
   def media_urls(media_objects)
-    media_objects.map { |media_object| { url: media_object.media_url.to_s } }
+    media_objects.map { |media_object| { image: media_object.media_url.to_s } }
   end
 
   def favorite_button(tweet)
