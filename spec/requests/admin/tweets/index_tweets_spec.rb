@@ -4,6 +4,7 @@ describe 'List Tweets' do
 
   let!(:user) { create(:user_with_tweets) }
   let(:admin) { create(:admin) }
+  let!(:tweets) { create_list(:tweet, 10) }
 
   before do
     login_as admin
@@ -11,11 +12,7 @@ describe 'List Tweets' do
   end
 
   it 'lists all tweets' do
-    expect(page).to have_content('System Tweets')
-  end
-
-  it 'has both tweets' do
-    expect(page).to have_selector('table td', minimum: 2)
+    expect(page).to have_selector('table tr', count: 10)
   end
 
   it 'has the edit button' do

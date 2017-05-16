@@ -5,7 +5,7 @@ module Admin
     before_action :set_favorite, only: [:edit, :update, :destroy]
 
     def index
-      @favorites = Favorite.all.includes(:user, :tweet)
+      @favorites = Favorite.all.includes(:user, :tweet).paginate(page: params[:page], per_page: 10)
     end
 
     def new
