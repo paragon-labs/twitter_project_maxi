@@ -4,8 +4,8 @@
   <h1>Users</h1>
   <table class='table table-hover'>
     <thead>
-      <th>Email</th>
-      <th>Admin?</th>
+      <th><%= sortable_column 'email', 'Email' %></th>
+      <th><%= sortable_column 'admin', 'Admin?' %></th>
       <th class= 'text-center' colspan='2'>Actions</th>
     </thead>
     <% @users.each do |user| %>
