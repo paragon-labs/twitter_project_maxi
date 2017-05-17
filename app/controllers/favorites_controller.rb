@@ -6,13 +6,12 @@ class FavoritesController < ApplicationController
 
   def create
     current_user.favorite!(tweet)
-    render json: { action: 'created', tweet_id: tweet.number }
+    @tweet_number = tweet.number
   end
 
   def destroy
-    tweet = Tweet.find_by!(number: params[:id])
-    current_user.unfavorite!(tweet)
-    render json: { tweet_params: tweet.attributes }
+    @tweet = Tweet.find_by!(number: params[:id])
+    current_user.unfavorite!(@tweet)
   end
 
   private

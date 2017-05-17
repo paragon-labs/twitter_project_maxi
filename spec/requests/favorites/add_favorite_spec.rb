@@ -8,12 +8,12 @@ describe 'Add Favorite', :vcr do
     login_as user
   end
 
-  it 'adds a tweet as favorite' do
+  it 'adds a tweet as favorite', js: true do
     visit tweets_path
 
-    all('div .top-right').first.find('button').click
+    find('div .top-right', match: :first).find('button').click
 
-    expect(page).to have_css('.alert-info', text: 'Tweet added to favorites.')
+    expect(page).to have_selector(:link_or_button, 'Unfavorite')
   end
 
 end

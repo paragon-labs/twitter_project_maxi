@@ -49,6 +49,7 @@ group :test do
   gem 'travis'
   gem 'vcr'
   gem 'webmock'
+  gem 'capybara-webkit'
 end
 
 gem 'twitter'

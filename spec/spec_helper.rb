@@ -17,8 +17,16 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'capybara/webkit'
+
+Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
+
+  Capybara::Webkit.configure do |config|
+    config.allow_url('abs.twimg.com')
+    config.allow_url('pbs.twimg.com')
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
