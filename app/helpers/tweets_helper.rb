@@ -31,4 +31,12 @@ module TweetsHelper
     banner.to_s[0..-4] + '1500x500'
   end
 
+  def popover_information(user)
+    div_content = "Tweets: #{user.tweets_count} - Followers: #{user.followers_count}"
+    capture do
+      concat content_tag(:div, user.description, class: 'popover_description')
+      concat content_tag(:div, div_content)
+    end
+  end
+
 end

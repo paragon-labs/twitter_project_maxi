@@ -9,7 +9,8 @@
       <% end %>
     </div>
     <div>
-      <%= link_to twitter_user_path(tweet.user.screen_name), title:'profile' do %>
+      <%= link_to twitter_user_path(tweet.user.screen_name), title: tweet.user.name,
+                  'data-content': popover_information(tweet.user), class:'popoverData' do %>
         <%= image_tag(tweet.user.profile_image_url, class: 'avatar') %>
         <span class='name'><%= tweet.user.name %><br> </span>
         <span class='screen-name'>@<%= tweet.user.screen_name %></span>
