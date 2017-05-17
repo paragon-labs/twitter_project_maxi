@@ -6,6 +6,10 @@ module Admin
 
     def index
       @users = User.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -48,8 +52,9 @@ module Admin
     end
 
     def sort_order
-      sort_column = User.column_names.include?(params[:sort_column]) ? params[:sort_column] : 'email'
-      sort_column + ' ' + params[:sort_direction]
+      sort_column = User.column_names.include?(params[:sortColumn]) ? params[:sortColumn] : 'email'
+      sort_direction = params[:sortDirection] || 'asc'
+      sort_column + ' ' + sort_direction
     end
 
   end
