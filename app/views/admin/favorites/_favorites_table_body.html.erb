@@ -1,0 +1,18 @@
+<% favorites.each do |favorite| %>
+  <tr class= 'text-center'>
+    <td><%= favorite.user_id %></td>
+    <td><%= favorite.user.email %></td>
+    <td><%= favorite.tweet_id %></td>
+    <td class='fit-text'><%= favorite.tweet.text %></td>
+    <td>
+      <%= link_to edit_admin_favorite_path(favorite) do %>
+        <span class='glyphicon glyphicon-pencil' data-toggle='tooltip' data-placement='right' title='Edit Favorite'></span>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to admin_favorite_path(favorite), method: :delete, data: { confirm: 'Delete this tweet?' } do %>
+        <span class='glyphicon glyphicon-remove' data-toggle='tooltip' data-placement='right' title='Delete Tweet'></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

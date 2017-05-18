@@ -23,22 +23,19 @@ $(document).on('turbolinks:load', function(){
     var $t = $(this);
     var $data = $t.data();
     var $direction = $data.sortDirection;
+    var $url = window.location.pathname;
     $.ajax({
-      url: '/admin/users',
+      url: $url,
       method: 'GET',
-      data: $data,
+      data: $data
     })
-    .success( renderUsersTable($t, $direction) )
-
-    .fail(function(){
-      alert('There was an error sorting the columns');
-    })
+    .success(renderTable($t, $direction));
   });
 
-  var renderUsersTable = function($button, $direction) {
+  var renderTable = function($button, $direction){
     $('.sort-column').removeClass('bold-font-weight');
     $button.addClass('bold-font-weight');
-    if ($direction == 'desc'){
+    if ($direction === 'desc'){
       $button.data('sort-direction', 'asc');
     } else {
       $button.data('sort-direction', 'desc');

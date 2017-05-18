@@ -5,7 +5,11 @@ module Admin
     before_action :set_favorite, only: [:edit, :update, :destroy]
 
     def index
-      @favorites = Favorite.all.includes(:user, :tweet).paginate(page: params[:page], per_page: 10)
+      @favorites = Favorite.all.includes(:user, :tweet).order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -53,6 +57,12 @@ module Admin
     def set_favorite
       @favorite = Favorite.find(params[:id])
     end
-    
+
+    def sort_order
+      sort_column = %w[user_id tweet_id users.email].include?(params[:sortColumn]) ? params[:sortColumn] : 'user_id'
+      sort_direction = params[:sortDirection] || 'asc'
+      sort_column + ' ' + sort_direction
+    end
+
   end
 end
