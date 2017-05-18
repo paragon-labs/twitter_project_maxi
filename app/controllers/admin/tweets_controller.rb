@@ -5,7 +5,11 @@ module Admin
     before_action :authorize
 
     def index
-      @tweets = Tweet.all.paginate(page: params[:page], per_page: 10)
+      @tweets = Tweet.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -46,6 +50,12 @@ module Admin
 
     def set_tweet
       @tweet = Tweet.find(params[:id])
+    end
+
+    def sort_order
+      sort_column = Tweet.column_names.include?(params[:sortColumn]) ? params[:sortColumn] : 'number'
+      sort_direction = params[:sortDirection] || 'asc'
+      sort_column + ' ' + sort_direction
     end
 
   end
