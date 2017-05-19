@@ -22,4 +22,12 @@ class Favorite < ActiveRecord::Base
     'user_id'
   end
 
+  def self.search(search, column = 'tweet_id')
+    if !search.blank? && ['user_id', 'tweet_id'].include?(column)
+      where("#{column} = ?", search)
+    else
+      all
+    end
+  end
+
 end

@@ -7,7 +7,7 @@ module Admin
     before_action :set_favorite, only: [:edit, :update, :destroy]
 
     def index
-      @favorites = Favorite.all.includes(:user, :tweet).order(sort_order).paginate(page: params[:page], per_page: 10)
+      @favorites = Favorite.search(params[:search], params[:column]).includes(:user, :tweet).order(sort_order).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.js
         format.html
