@@ -7,7 +7,7 @@ module Admin
     before_action :authorize
 
     def index
-      @users = User.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      @users = User.search(params[:search]).order(sort_order).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.js
         format.html

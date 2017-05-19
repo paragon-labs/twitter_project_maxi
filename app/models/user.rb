@@ -30,4 +30,12 @@ class User < ActiveRecord::Base
     'email'
   end
 
+  def self.search(search)
+    if search
+      where('email LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
 end
