@@ -25,7 +25,7 @@
   </div>
 
   <div class='flickr_pagination'>
-    <%= will_paginate @tweets %>
+    <%= render partial: 'admin/will_paginate', locals: { resources: @tweets } %>
   </div>
 
   <div>

@@ -20,7 +20,7 @@
   </div>
 
   <div class='flickr_pagination'>
-    <%= will_paginate @users %>
+    <%= render partial: 'admin/will_paginate', locals: { resources: @users } %>
   </div>
 
   <div>
