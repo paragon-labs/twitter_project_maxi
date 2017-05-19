@@ -16,5 +16,13 @@ class Tweet < ActiveRecord::Base
   def self.default_column
     'number'
   end
-  
+
+  def self.search(search, column = 'id')
+    if !search.blank? && ['id', 'number'].include?(column)
+      where("#{column} = ?", search)
+    else
+      all
+    end
+  end
+
 end

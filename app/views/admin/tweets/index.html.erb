@@ -2,13 +2,23 @@
 <%= currently_at_left('Admin', 'Tweets') %>
 <div class='col-lg-10'>
   <h1>System Tweets</h1>
+
+  <div class='search-div'>
+    <%= text_field_tag :search_field, nil, class: 'form-group' %>
+    <%= button_tag id: 'search_button', class: 'btn btn-default' do %>
+      <span class='glyphicon glyphicon-search'></span>
+    <% end %>
+    <%= label_tag nil,'Search by:',class:'search-margin' %>
+    <%= select_tag 'search_column', options_for_select({id: 'id', number: 'number'}), class: 'form-select fit-select' %>
+  </div>
+
   <div id='tweets_table_container'>
     <table class='table table-hover'>
       <thead class='thead-default'>
-        <th class= 'text-center'><%= sortable_column 'id', 'Tweet id' %></th>
-        <th class= 'text-center'><%= sortable_column 'number', 'Tweet number' %></th>
-        <th class= 'text-center non-sort-column'>Tweet text fragment</th>
-        <th class= 'text-center non-sort-column' colspan='2'>Actions</th>
+        <th class= 'text-center'>Tweet id</th>
+        <th class= 'text-center'>Tweet number</th>
+        <th class= 'text-center'>Tweet text fragment</th>
+        <th class= 'text-center' colspan='2'>Actions</th>
       </thead>
       <%= render partial: 'tweets_table_body', locals: { tweets: @tweets } %>
     </table>
