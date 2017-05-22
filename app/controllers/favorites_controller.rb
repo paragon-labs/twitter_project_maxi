@@ -1,7 +1,12 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = current_user.faved_tweets.includes(:tweet_images)
+    @favorites = current_user.search_faved_tweets(params[:search]).includes(:tweet_images)
+    respond_to do |format|
+      format.js
+      format.json
+      format.html
+    end
   end
 
   def create

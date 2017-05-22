@@ -3,6 +3,10 @@
 
 <div class='col-lg-6 col-lg-offset-1'>
 
-  <%= render partial: 'favorite', collection: @favorites %>
+  <%= text_field_tag :favorite, nil, class: 'js-favorites-autocomplete' %>
+
+  <div id='my_favorites_list'>
+    <%= render partial: 'favorite', collection: @favorites %>
+  </div>
 
 </div>

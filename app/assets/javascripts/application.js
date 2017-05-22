@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require cocoon
+//= require bootstrap-typeahead-rails
 
 $(document).on('turbolinks:load', function(){
 
