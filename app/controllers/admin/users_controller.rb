@@ -1,6 +1,8 @@
 module Admin
   class UsersController < ApplicationController
 
+    include SortColumns
+
     before_action :set_user, only: [:edit, :update, :destroy]
     before_action :authorize
 
@@ -51,10 +53,8 @@ module Admin
       params.require(:user).permit(:email, :password, :password_confirmation, :admin, :avatar)
     end
 
-    def sort_order
-      sort_column = User.column_names.include?(params[:sortColumn]) ? params[:sortColumn] : 'email'
-      sort_direction = params[:sortDirection] || 'asc'
-      sort_column + ' ' + sort_direction
+    def sort_class
+      User
     end
 
   end

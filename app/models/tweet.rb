@@ -9,4 +9,12 @@ class Tweet < ActiveRecord::Base
 
   accepts_nested_attributes_for :tweet_images, reject_if: :all_blank, allow_destroy: true
 
+  def self.sortable_columns
+    column_names
+  end
+
+  def self.default_column
+    'number'
+  end
+  
 end

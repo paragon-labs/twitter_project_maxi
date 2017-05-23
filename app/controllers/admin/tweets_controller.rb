@@ -1,6 +1,8 @@
 module Admin
   class TweetsController < ApplicationController
 
+    include SortColumns
+
     before_action :set_tweet, only: [:edit, :update, :destroy]
     before_action :authorize
 
@@ -52,10 +54,8 @@ module Admin
       @tweet = Tweet.find(params[:id])
     end
 
-    def sort_order
-      sort_column = Tweet.column_names.include?(params[:sortColumn]) ? params[:sortColumn] : 'number'
-      sort_direction = params[:sortDirection] || 'asc'
-      sort_column + ' ' + sort_direction
+    def sort_class
+      Tweet
     end
 
   end

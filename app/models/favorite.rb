@@ -14,4 +14,12 @@ class Favorite < ActiveRecord::Base
     end
   end
 
+  def self.sortable_columns
+    %w[user_id tweet_id users.email]
+  end
+
+  def self.default_column
+    'user_id'
+  end
+
 end

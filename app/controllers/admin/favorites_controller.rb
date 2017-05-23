@@ -1,6 +1,8 @@
 module Admin
   class FavoritesController < ApplicationController
 
+    include SortColumns
+
     before_action :authorize
     before_action :set_favorite, only: [:edit, :update, :destroy]
 
@@ -58,10 +60,8 @@ module Admin
       @favorite = Favorite.find(params[:id])
     end
 
-    def sort_order
-      sort_column = %w[user_id tweet_id users.email].include?(params[:sortColumn]) ? params[:sortColumn] : 'user_id'
-      sort_direction = params[:sortDirection] || 'asc'
-      sort_column + ' ' + sort_direction
+    def sort_class
+      Favorite
     end
 
   end
