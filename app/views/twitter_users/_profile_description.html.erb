@@ -1,0 +1,25 @@
+<h1 class='profile-name'><%= user.name %></h1>
+<h2 class='profile-screen-name'>@<%= user.screen_name %></h2>
+<p class='profile-description'><%= user.description %></p>
+
+<div class='profile-stats'>
+  <span>Tweets:</span>
+  <span><%= user.statuses_count %></span>
+</div>
+
+<div class='profile-stats'>
+  <span>Likes:</span>
+  <span><%= user.favourites_count %></span>
+</div>
+
+<% if user.location? %>
+  <div class='profile-stats'>
+    <span class='glyphicon glyphicon-map-marker'></span>
+    <span> <%= user.location %></span>
+  </div>
+<% end %>
+
+<div class='profile-stats'>
+  <span class='glyphicon glyphicon-calendar'></span>
+  <span>Joined: <%= user.created_at.to_date %></span>
+</div>

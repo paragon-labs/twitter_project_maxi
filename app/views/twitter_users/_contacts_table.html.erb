@@ -1,0 +1,13 @@
+<div class='table-overflow'>
+  <table class='table table-hover'>
+    <% contacts.each do |contact| %>
+      <tr>
+        <td>
+          <%= link_to contact.url.to_s do %>
+            <span>@<%= contact.screen_name %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

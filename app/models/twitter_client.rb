@@ -1,6 +1,10 @@
 class TwitterClient
 
   delegate :search, to: :@client
+  delegate :user, to: :@client
+  delegate :user_timeline, to: :@client
+  delegate :followers, to: :@client
+  delegate :friends, to: :@client
 
   def initialize
     @client = Twitter::REST::Client.new do |config|

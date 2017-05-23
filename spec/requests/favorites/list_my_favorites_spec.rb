@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'List Favorites', :vcr do
 
-  let(:user) { create(:user_with_tweets) }
+  let!(:user) { create(:user_with_tweets) }
 
   before do
     login_as user

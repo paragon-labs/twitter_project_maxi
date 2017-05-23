@@ -3,6 +3,7 @@ FactoryGirl.define do
   factory :tweet do
     sequence(:number) { |n| n }
     text 'MyText'
+    sequence(:user_screen_name) { |n| "user#{n}" }
 
     factory :tweet_with_users do
       after(:create) do |tweet|

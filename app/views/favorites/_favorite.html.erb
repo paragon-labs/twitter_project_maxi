@@ -5,7 +5,7 @@
       <%= unfavorite_button(favorite.number) %>
     </div>
     <div>
-      <%= link_to favorite.user_url, title:'profile' do %>
+      <%= link_to twitter_user_path(favorite.user_screen_name), title:'profile' do %>
         <%= image_tag(favorite.user_profile_img, class: 'avatar') %>
         <span class='name'><%= favorite.user_name %><br> </span>
         <span class='screen-name'>@<%= favorite.user_screen_name %></span>

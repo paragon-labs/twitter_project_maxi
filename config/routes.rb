@@ -23,6 +23,8 @@ TwitterProjectMaxi::Application.routes.draw do
     resources :favorites, except: :show
   end
 
+  resources :twitter_users, only: :show
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
