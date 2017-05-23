@@ -17,9 +17,9 @@ class Tweet < ActiveRecord::Base
     'number'
   end
 
-  def self.search(search, column = 'id')
-    if !search.blank? && ['id', 'number'].include?(column)
-      where("#{column} = ?", search)
+  def self.search(search)
+    if search.present?
+      where('id = ? OR number = ?', search.to_i, search.to_i)
     else
       all
     end

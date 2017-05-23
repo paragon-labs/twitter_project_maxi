@@ -44,12 +44,11 @@ $(document).on('turbolinks:load', function(){
   
   $('#search_button').on('click', function(){
     var $search = $('#search_field').val();
-    var $column = $('#search_column').val();
     var $url = window.location.pathname;
     $.ajax({
       url: $url,
       method: 'GET',
-      data: { 'search' : $search, 'column': $column }
+      data: { 'search' : $search }
     });
   });
 
