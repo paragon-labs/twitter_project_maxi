@@ -1,11 +1,17 @@
 module Admin
   class TweetsController < ApplicationController
 
+    include SortColumns
+
     before_action :set_tweet, only: [:edit, :update, :destroy]
     before_action :authorize
 
     def index
-      @tweets = Tweet.all.paginate(page: params[:page], per_page: 10)
+      @tweets = Tweet.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -46,6 +52,10 @@ module Admin
 
     def set_tweet
       @tweet = Tweet.find(params[:id])
+    end
+
+    def sort_class
+      Tweet
     end
 
   end

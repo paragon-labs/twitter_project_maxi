@@ -2,29 +2,17 @@
 <%= currently_at_left('Admin', 'Users') %>
 <div class='col-lg-10'>
   <h1>Users</h1>
-  <table class='table table-hover'>
-    <thead>
-      <th>Email</th>
-      <th>Admin?</th>
-      <th class= 'text-center' colspan='2'>Actions</th>
-    </thead>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %> </td>
-        <td><%= user.admin ? 'Yes' : 'No' %> </td>
-        <td class='text-center'>
-          <%= link_to edit_admin_user_path(user) do %>
-            <span class='glyphicon glyphicon-pencil' data-toggle='tooltip' data-placement='right' title='Edit User'></span>
-          <% end %>
-        </td>
-        <td class='text-center'>
-          <%= link_to admin_user_path(user), method: :delete, data: { confirm: 'Delete this user?' } do %>
-            <span class='glyphicon glyphicon-remove' data-toggle='tooltip' data-placement='right' title='Delete User'></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+
+  <div id='users_table_container'>
+    <table class='table table-hover'>
+      <thead>
+        <th><%= sortable_column 'email', 'Email' %></th>
+        <th><%= sortable_column 'admin', 'Admin?' %></th>
+        <th class= 'text-center non-sort-column' colspan='2'>Actions</th>
+      </thead>
+      <%= render partial: 'users_table_body', locals: { users: @users } %>
+    </table>
+  </div>
 
   <div class='flickr_pagination'>
     <%= will_paginate @users %>

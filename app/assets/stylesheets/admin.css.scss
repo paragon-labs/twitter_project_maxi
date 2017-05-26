@@ -1,0 +1,36 @@
+.fit-text {
+  width: 60%;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.non-sort-column {
+  border: transparent;
+  color: #428bca;
+  background-color: transparent;
+  padding: 0;
+  font-weight: normal;
+  box-shadow: none;
+}
+
+.sort-column {
+  border: transparent;
+  color: #428bca;
+  background-color: transparent;
+  padding: 0;
+  font-weight: normal;
+  box-shadow: none;
+}
+
+.sort-column, .sort-column:hover, .sort-column:focus, .sort-column:active {
+  border-color: transparent;
+  outline: 0;
+}
+
+.bold-font-weight {
+  font-weight: bold;
+}

@@ -16,3 +16,30 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require cocoon
+
+$(document).on('turbolinks:load', function(){
+
+  $('.sort-column').on('click', function(){
+    var $t = $(this);
+    var $data = $t.data();
+    var $direction = $data.sortDirection;
+    var $url = window.location.pathname;
+    $.ajax({
+      url: $url,
+      method: 'GET',
+      data: $data
+    })
+    .success(renderTable($t, $direction));
+  });
+
+  var renderTable = function($button, $direction){
+    $('.sort-column').removeClass('bold-font-weight');
+    $button.addClass('bold-font-weight');
+    if ($direction === 'desc'){
+      $button.data('sort-direction', 'asc');
+    } else {
+      $button.data('sort-direction', 'desc');
+    }
+  };
+
+});

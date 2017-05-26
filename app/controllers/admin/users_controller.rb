@@ -1,11 +1,17 @@
 module Admin
   class UsersController < ApplicationController
 
+    include SortColumns
+
     before_action :set_user, only: [:edit, :update, :destroy]
     before_action :authorize
 
     def index
-      @users = User.all.paginate(page: params[:page], per_page: 10)
+      @users = User.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -15,7 +21,7 @@ module Admin
     def create
       @user = User.new(user_params)
       if @user.save
-        flash[:notice] = "User successfully created."
+        flash[:notice] = 'User successfully created.'
         redirect_to admin_users_path
       else
         render 'new'
@@ -24,7 +30,7 @@ module Admin
 
     def update
       if @user.update(user_params)
-        flash[:notice] = "User updated successfully."
+        flash[:notice] = 'User updated successfully.'
         redirect_to admin_users_path
       else
         render 'edit'
@@ -33,7 +39,7 @@ module Admin
 
     def destroy
       @user.destroy
-      flash[:alert] = "User deleted successfully."
+      flash[:alert] = 'User deleted successfully.'
       redirect_to admin_users_path
     end
 
@@ -45,6 +51,10 @@ module Admin
 
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :admin, :avatar)
+    end
+
+    def sort_class
+      User
     end
 
   end

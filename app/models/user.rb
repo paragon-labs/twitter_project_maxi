@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
     faved_tweets.any? { |tweet| tweet.number == tweet_number }
   end
 
+  def self.sortable_columns
+    column_names
+  end
+
+  def self.default_column
+    'email'
+  end
+
 end

@@ -1,11 +1,17 @@
 module Admin
   class FavoritesController < ApplicationController
 
+    include SortColumns
+
     before_action :authorize
     before_action :set_favorite, only: [:edit, :update, :destroy]
 
     def index
-      @favorites = Favorite.all.includes(:user, :tweet).paginate(page: params[:page], per_page: 10)
+      @favorites = Favorite.all.includes(:user, :tweet).order(sort_order).paginate(page: params[:page], per_page: 10)
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     def new
@@ -53,6 +59,10 @@ module Admin
     def set_favorite
       @favorite = Favorite.find(params[:id])
     end
-    
+
+    def sort_class
+      Favorite
+    end
+
   end
 end
