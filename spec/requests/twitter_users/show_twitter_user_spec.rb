@@ -12,7 +12,7 @@ describe 'Show Twitter User', :vcr do
     it 'renders the show page' do
       visit tweets_path
 
-      first(:link, 'profile').click
+      first(:link, class: 'popoverData').click
 
       expect(page).to have_css('h1', class: 'profile-name')
     end
