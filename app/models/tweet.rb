@@ -16,5 +16,13 @@ class Tweet < ActiveRecord::Base
   def self.default_column
     'number'
   end
-  
+
+  def self.search(search)
+    if search.present?
+      where('id = ? OR number = ?', search.to_i, search.to_i)
+    else
+      all
+    end
+  end
+
 end

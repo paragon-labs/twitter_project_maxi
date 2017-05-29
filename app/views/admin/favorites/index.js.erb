@@ -1,1 +1,2 @@
 $('#favorites_table_container tbody').html("<%= escape_javascript(render partial: 'favorites_table_body', locals: { favorites: @favorites }) %>")
+$('.flickr_pagination').html("<%= escape_javascript(render partial: 'admin/will_paginate', locals: { resources: @favorites }) %>")

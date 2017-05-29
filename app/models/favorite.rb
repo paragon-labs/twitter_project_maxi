@@ -22,4 +22,12 @@ class Favorite < ActiveRecord::Base
     'user_id'
   end
 
+  def self.search(search)
+    if search.present?
+      where('user_id = ? OR tweet_id = ?', search, search)
+    else
+      all
+    end
+  end
+
 end

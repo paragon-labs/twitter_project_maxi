@@ -7,7 +7,7 @@ module Admin
     before_action :authorize
 
     def index
-      @tweets = Tweet.all.order(sort_order).paginate(page: params[:page], per_page: 10)
+      @tweets = Tweet.search(params[:search]).order(sort_order).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.js
         format.html

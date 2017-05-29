@@ -41,5 +41,15 @@ $(document).on('turbolinks:load', function(){
       $button.data('sort-direction', 'desc');
     }
   };
+  
+  $('#search_button').on('click', function(){
+    var $search = $('#search_field').val();
+    var $url = window.location.pathname;
+    $.ajax({
+      url: $url,
+      method: 'GET',
+      data: { 'search' : $search }
+    });
+  });
 
 });

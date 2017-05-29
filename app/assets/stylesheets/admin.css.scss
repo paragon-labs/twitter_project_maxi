@@ -8,6 +8,26 @@
   max-width: 200px;
 }
 
+.fit-select {
+  max-width: 10%;
+}
+
+.search-margin {
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+.form-select {
+  height: 25px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
 .non-sort-column {
   border: transparent;
   color: #428bca;

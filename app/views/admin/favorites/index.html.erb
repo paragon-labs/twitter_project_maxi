@@ -4,6 +4,11 @@
 <div class='col-lg-10'>
   <h1>System Favorites</h1>
 
+  <%= text_field_tag :search_field, nil, class: 'form-group' %>
+  <%= button_tag id: 'search_button', class: 'btn btn-default' do %>
+    <span class='glyphicon glyphicon-search'></span>
+  <% end %>
+
   <div id='favorites_table_container'>
     <table class='table table-hover'>
       <thead class='thead-default'>
@@ -15,10 +20,10 @@
       </thead>
       <%= render partial: 'favorites_table_body', locals: { favorites: @favorites } %>
     </table>
-
   </div>
+  
   <div class='flickr_pagination'>
-    <%= will_paginate @favorites %>
+    <%= render partial: 'admin/will_paginate', locals: { resources: @favorites } %>
   </div>
 
   <div>
