@@ -38,4 +38,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def search_faved_tweets(search)
+    if search.present?
+      faved_tweets.where('user_name ILIKE ?', "%#{search}%")
+    else
+      faved_tweets
+    end
+  end
+
 end
